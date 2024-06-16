@@ -25,10 +25,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 // ==================================== countdown timer =====================
-const countdown = document.getElementById("countdown1");
+const countdown = document.getElementById("captureBG");
 const videoSection = document.getElementById("video_section");
 function CountDownTimer() {
-  let counter = 4;
+  let counter = 5;
 
   function updateCounter() {
     counter -= 1;
@@ -36,11 +36,11 @@ function CountDownTimer() {
     if (counter === 0) {
       document.getElementById(
         "captureBG"
-      ).src = `./assets/New folder/3 BAT Photobooth Image Light.jpg`;
+      ).src = `./assets/1.jpg`;
       countdown.style.display = "none";
     } else {
       if (counter > 0) {
-        countdown.src = `./assets/New folder/${counter}.png`;
+        countdown.src = `./assets/${counter}.jpg`;
       }
     }
     // countdown.style.cssText = `--value: ${counter}`;
@@ -105,7 +105,7 @@ function fileToDataURL(file, callback) {
 }
 
 function uploadImageToBannerAPI(file) {
-  console.log("🚀 ~ uploadImageToBannerAPI ~ file:", file);
+ 
 
   // Create a FormData object and append the image file to it
   const formData = new FormData();
@@ -173,7 +173,7 @@ function uploadImageToStorageAPI(file) {
         console.log('Data URL:', dataURL);
       });
       // console.log(data.id);
-      photoListAdd(data.id);
+      // photoListAdd(data.id);
       genQR(data.id);
       console.log("Image upload successful at : ", data);
     })
@@ -202,28 +202,7 @@ function genQR(url) {
   createQrCode(longUrl);
 }
 
-// photo-list data store in mongodb
-function photoListAdd(Id) {
-  const taskData = {
-    photoId: Id,
-    done: false,
-  };
 
-  fetch("https://api-photobooth.xri.com.bd/photo-list", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(taskData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("added photo data:", data);
-    })
-    .catch((error) => {
-      console.error("Error to add photo details:", error);
-    });
-}
 
 // ====================== spinner =========================
 const loaderSection = document.getElementById("loader");
@@ -276,11 +255,9 @@ function openFullscreen() {
 
 // Function to handle key press event
 function handleKeyPress(event) {
-  // check keyboard ("enter")
-  //i change c=99 to space
+  // check keyboard ("enter") keyCode = 13 mean enter
   console.log(event.keyCode);
   if (event.keyCode === 13) {
-    countdown.src = "./assets/New folder/4.png";
     indexSection.classList.remove("block");
     indexSection.classList.add("hidden");
     videoSection.classList.remove("hidden");
@@ -290,9 +267,9 @@ function handleKeyPress(event) {
     // check keyboard ("x")
     document.getElementById(
       "captureBG"
-    ).src = `./assets/New folder/Asset 7@2x.png`;
+    ).src = `./assets/5.jpg`;
      countdown.style.display = "block";
-    countdown.src = "./assets/New folder/4.png";
+    countdown.src = "./assets/5.jpg";
     indexSection.classList.remove("hidden");
     indexSection.classList.add("block");
     videoSection.classList.remove("flex");
