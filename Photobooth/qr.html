@@ -34,34 +34,35 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <style>
-      .border-style {
-        /* border-radius: 31px; */
-        border: 5px solid #E5A430;
-        background: rgba(217, 217, 217, 0);
-      }
-    </style>
+    
   </head>
   <body>
     <section
       id="qrcode-section"
-      class="w-full flex items-center justify-center gap-6 bg-[url('./assets/homebg.png')] bg-cover bg-no-repeat h-screen"
+      class="justify-center items-center h-screen relative"
     >
-      <div class="w-3/4 inline-block border-8 rounded-lg border-white">
+      <div class="w-full h-screen relative">
         <img
-          class="w-full"
-          src="https://arbooth.cyclic.cloud/image/fac96c74-ce15-4297-8de3-cb5398480bd8"
+          class="border-style w-full h-full"
+          src="./assets/qr-code-box.png"
           alt=""
           srcset=""
           id="preview_img"
         />
       </div>
-      <div class="w-[20%] inline-block ">
-        <div class="bg-white border-style rounded-lg">
-          <!-- Where the generated QR code will be. -->
-          <div id="qr-code" class=""></div>
-        </div>
-        <h1 class="text-white text-center">স্ক্যান করে আপনার ছবিটি ডাউনলোড করুন</h1>
+      <div class="absolute top-[18%] left-[39%]">
+        <!-- Where the generated QR code will be. -->
+        <div id="qr-code" class="w-[250px] h-[250px]"></div>
+      </div>
+
+      <div class="absolute top-[43%] left-[29%] w-[500px] h-[800px]">
+        <img
+          class="border-style w-full h-full"
+          src="./assets/BAT AR Photobooth Final. dspng-10.png"
+          alt=""
+          srcset=""
+          id="preview_img2"
+        />
       </div>
     </section>
     <script>

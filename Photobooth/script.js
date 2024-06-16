@@ -168,7 +168,7 @@ function uploadImageToStorageAPI(file) {
       document.getElementById("qrcode-section").classList.add("flex");
       // convert file to dataURL and set data url in the preview_img
       fileToDataURL(file, (dataURL) => {
-        const previewImage = document.getElementById("preview_img");
+        const previewImage = document.getElementById("preview_img2");
         previewImage.src = dataURL;
         console.log('Data URL:', dataURL);
       });
@@ -253,11 +253,14 @@ function openFullscreen() {
   }
 }
 
+let captureImageCount = true;
+
 // Function to handle key press event
 function handleKeyPress(event) {
   // check keyboard ("enter") keyCode = 13 mean enter
   console.log(event.keyCode);
-  if (event.keyCode === 13) {
+  if (event.keyCode === 13 && captureImageCount) {
+    captureImageCount = false;
     indexSection.classList.remove("block");
     indexSection.classList.add("hidden");
     videoSection.classList.remove("hidden");
@@ -277,6 +280,7 @@ function handleKeyPress(event) {
     qrcodeSection.classList.remove("flex");
     qrcodeSection.classList.add("hidden");
     openFullscreen();
+    captureImageCount = true;
   }
 }
 // Add event listener for key press event
