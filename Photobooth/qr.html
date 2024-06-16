@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.7.5/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      .border-style {
+        /* border-radius: 31px; */
+        border: 5px solid #E5A430;
+        background: rgba(217, 217, 217, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      id="qrcode-section"
+      class="w-full flex items-center justify-center gap-6 bg-[url('./assets/homebg.png')] bg-cover bg-no-repeat h-screen"
+    >
+      <div class="w-3/4 inline-block border-8 rounded-lg border-white">
+        <img
+          class="w-full"
+          src="https://arbooth.cyclic.cloud/image/fac96c74-ce15-4297-8de3-cb5398480bd8"
+          alt=""
+          srcset=""
+          id="preview_img"
+        />
+      </div>
+      <div class="w-[20%] inline-block ">
+        <div class="bg-white border-style rounded-lg">
+          <!-- Where the generated QR code will be. -->
+          <div id="qr-code" class=""></div>
+        </div>
+        <h1 class="text-white text-center">স্ক্যান করে আপনার ছবিটি ডাউনলোড করুন</h1>
+      </div>
+    </section>
+    <script>
+      const url2 =
+        "https://arbooth.cyclic.cloud/image/625fea3c-c86b-414d-9bea-a2533c94527d";
+
+      function createQrCode(url) {
+        document.getElementById("qr-code").innerHTML = "";
+        const qr = new QRCode(document.getElementById("qr-code"), {
+          text: url,
+          width: 250,
+          height: 250,
+        });
+
+        console.log(qr);
+      }
+      createQrCode(url2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
+
+
+
+.frontBlur{
+    width: 635px;
+    height: 600px;
+
+    /* transform: rotate(-90deg); */
+    flex-shrink: 0;
+    border-radius: 29px;
+    border: 3px solid #FB37FF;
+    background: linear-gradient(159deg, rgba(58, 129, 191, 0.08) 4.89%, rgba(65, 48, 90, 0.03) 95.89%);
+    backdrop-filter: blur(54px);
+}
+
+.fontStyle{
+    color: #28D8FF;
+    text-shadow: 0px 4px 3px rgba(255, 255, 255, 0.83);
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.textStyle{
+    color: #FFF;
+    text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+    font-family: Jim Nightshade;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.btnDiv{
+    border-radius: 26px;
+    border: 1px solid rgba(27, 83, 152, 0.63);
+    background: linear-gradient(157deg, rgba(255, 255, 255, 0.40) 3.24%, rgba(255, 255, 255, 0.10) 98.67%);
+    box-shadow: 0px 4px 38px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+}
+
+#qr-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    padding: 33px 0;
+  }
+
+  #Generate {
+    background-color: #3498db;
+    /* transition: height ease; */
+    padding: 20px;
+    border-radius: 2rem;
+    height: 300px;
+  }
+
+  @media screen and (max-width: 414px) {
+    #Generate {
+      height: 400px;
+    }
+  }

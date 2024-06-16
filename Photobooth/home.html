@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhotoBooth Welcome Page</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+
+      // Function to handle key press event
+    function handleKeyPress(event) {
+      if (event.keyCode === 99) { // Check if space bar is pressed (keyCode 32)
+        window.location.href = 'photobooth.html'; // Redirect to another.html
+      }
+    }
+    // Add event listener for key press event
+    document.addEventListener('keypress', handleKeyPress);
+    </script>
+    <style>
+    
+      .mandalaRotate {
+        animation: rotate-animation 10s infinite linear;
+      }
+
+      @keyframes rotate-animation {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        50% {
+          transform: rotate(180deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="h-screen py-14 px-24 bg-[url('./assets/homebg.png')] bg-cover bg-no-repeat -z-50">
+    <section class="text-white relative">
+      <div class="w-full">
+        <div class="lg:w-1/5 w-1/2 mx-auto relative">
+          <img
+            class="m-auto"
+            src="./assets/alponayBoishakhNamonic.png"
+            alt="bralnd logo "
+          />
+          <img
+            class="absolute top-[30%] -right-4 -z-10 w-[50%] transform -translate-y-1/2 mandalaRotate"
+            src="./assets/mandala.png"
+            alt="mandal"
+          />
+        </div>
+        <h1 class="text-center font-medium 2xl:text-4xl xl:text-3xl md:text-[21px] sm:text-xl mt-14">
+          এসো এবার ছবি তুলে বাংলা নববর্ষের উল্লাস ছড়িয়ে দেই বিশ্বজুড়ে
+        </h1>
+      </div>
+      <div class="flex flex-col justify-center items-center mt-12">
+        <img class="w-28" src="./assets/camera.png" alt="" />
+        <p class="text-5xl font-bold mt-8  leading-[1]">AR PHOTO</p>
+        <p class="text-[40px] font-bold mt-2 leading-[1]">EXPERIENCE</p>
+        <h1 class="text-8xl font-extrabold mt-2 leading-[0.8]">HERE</h1>
+        <img class="mt-11" src="./assets/uthsob.png" alt="" />
+      </div>
+      <img class="absolute xl:w-[200px] w-[150px] top-0 left-20" src="./assets/lt.png" alt="">
+      <img class="absolute xl:w-[200px] w-[150px] top-1/2 -translate-y-1/2 left-0" src="./assets/lm.png" alt="">
+      <img class="absolute xl:w-[200px] w-[150px] bottom-0 xl:left-28 left-20" src="./assets/lb.png" alt="">
+      <img class="absolute xl:w-[200px] w-[150px] top-0 right-10" src="./assets/rt.png" alt="">
+      <img class="absolute xl:w-[200px] w-[150px] bottom-0 right-0" src="./assets/rb.png" alt="">
+    </section>
+
+
+
+
+    <script>
+      function makeFullScreen() {
+      const elem = document.documentElement; // Get the root element (the <html> element)
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen(); // Fullscreen for modern browsers
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen(); // Fullscreen for Safari
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen(); // Fullscreen for Internet Explorer
+      }
+    }
+
+    // Call the function when the page is loaded
+    window.onload = function() {
+      makeFullScreen();
+    };
+
+    </script>
+  </body>
+</html>

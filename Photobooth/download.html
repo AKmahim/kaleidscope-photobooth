@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Image</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        background-image: url("./assets/moblilbg.png");
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        z-index: -50;
+      }
+      .section {
+        width: 100%;
+      }
+      .imgParent {
+        width: 60%;
+        margin: 0 auto;
+        position: relative;
+      }
+      .brandimg {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .mandalacss {
+        width: 70%;
+        position: absolute;
+        top: 25%;
+        right: -30px;
+        z-index: -1;
+      }
+
+      .mandalaRotate {
+        animation: rotate-animation 10s infinite linear;
+      }
+
+      @keyframes rotate-animation {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        50% {
+          transform: rotate(180deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .imgdownloadcontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .imgdownloadcontainer img {
+        width: 90%;
+        margin: 0 auto;
+        border: 10px solid white;
+        border-radius: 5px;
+      }
+      .download-btn {
+        outline: none;
+        border: none;
+        color: #fff;
+        display: flex;
+        cursor: pointer;
+        gap: 10px;
+        padding: 10px 25px;
+        border-radius: 6px;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        background: #8a530d;
+        transition: all 0.2s ease;
+        margin: 50px auto;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      }
+      .download-btn:hover {
+        background: #bd7416;
+      }
+      .download-btn img {
+        width: 20px;
+      }
+      .download-btn .text {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="imgParent">
+        <img
+          class="brandimg"
+          src="./assets/alponayBoishakhNamonic.png"
+          alt="bralnd logo"
+        />
+        <img
+          class="mandalacss mandalaRotate"
+          src="./assets/mandala.png"
+          alt="mandal"
+        />
+      </div>
+      <div class="imgdownloadcontainer">
+        <img src="./demo1.png" alt="" />
+      </div>
+      <button class="download-btn" data-timer="10">
+        <img src="./assets/downloadicon.png" alt="" />
+        <span class="text">ডাউনলোড</span>
+      </button>
+    </section>
+  </body>
+</html>
