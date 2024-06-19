@@ -49,7 +49,7 @@ def process_image():
 
         img_without_bg = remove_bg(filename)
 
-        result_image = overlay_img(img_without_bg, 'bg.jpg', position, size)
+        result_image = overlay_img(img_without_bg, 'bg2.png', position, size)
 
         result_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'result.jpg')
         
