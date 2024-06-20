@@ -34,9 +34,7 @@ function CountDownTimer() {
     counter -= 1;
     console.log("🚀 ~ updateCounter ~ counter:", counter);
     if (counter === 0) {
-      document.getElementById(
-        "captureBG"
-      ).src = `./assets/1.jpg`;
+      countdown.src = `./assets/1.jpg`;
       countdown.style.display = "none";
     } else {
       if (counter > 0) {
@@ -105,8 +103,6 @@ function fileToDataURL(file, callback) {
 }
 
 function uploadImageToBannerAPI(file) {
- 
-
   // Create a FormData object and append the image file to it
   const formData = new FormData();
   formData.append("image", file);
@@ -140,6 +136,7 @@ function uploadImageToBannerAPI(file) {
 
 // ================ qr code section ==================
 const qrcodeSection = document.getElementById("qrcode-section");
+const previewPhoto = document.getElementById("preview_photo");
 
 // ====================== upload image to storage api and get image id =================
 function uploadImageToStorageAPI(file) {
@@ -162,19 +159,23 @@ function uploadImageToStorageAPI(file) {
     .then((data) => {
       // Handle the API response here
       toggleSpinner(false);
-      // qrcodeSection.classList.remove('hidden');
 
-      document.getElementById("qrcode-section").classList.remove("hidden");
-      document.getElementById("qrcode-section").classList.add("flex");
+      previewPhoto.classList.remove("hidden");
+      previewPhoto.classList.add("block");
+
       // convert file to dataURL and set data url in the preview_img
       fileToDataURL(file, (dataURL) => {
-        const previewImage = document.getElementById("preview_img2");
+        const previewImage = document.getElementById("preview_img");
         previewImage.src = dataURL;
-        console.log('Data URL:', dataURL);
+        console.log("Data URL:", dataURL);
       });
       // console.log(data.id);
       // photoListAdd(data.id);
-      genQR(data.id);
+      setTimeout(() => {
+        previewPhoto.classList.add("hidden");
+        previewPhoto.classList.remove("block");
+        genQR(data.id);
+      }, 5000);
       console.log("Image upload successful at : ", data);
     })
     .catch((error) => {
@@ -191,6 +192,9 @@ function createQrCode(url) {
     height: 150,
   });
 
+  setTimeout(() => {
+    atWorksDone();
+  }, 10000);
   // console.log(qr);
 }
 
@@ -198,25 +202,36 @@ function createQrCode(url) {
 function genQR(url) {
   videoSection.classList.add("hidden");
   qrcodeSection.classList.remove("hidden");
+  qrcodeSection.classList.add("flex");
   const longUrl = "https:xri.com.bd/photobooth.html?q=" + url;
   createQrCode(longUrl);
 }
-
-
 
 // ====================== spinner =========================
 const loaderSection = document.getElementById("loader");
 const toggleSpinner = (isLoading) => {
   if (isLoading) {
     loaderSection.classList.remove("hidden");
-    loaderSection.classList.remove("flex");
+    loaderSection.classList.add("flex");
     videoSection.classList.remove("flex");
     videoSection.classList.add("hidden");
   } else {
     loaderSection.classList.add("hidden");
   }
 };
-
+const atWorksDone = () => {
+  document.getElementById("captureBG").src = `./assets/5.jpg`;
+  countdown.style.display = "block";
+  countdown.src = "./assets/5.jpg";
+  indexSection.classList.remove("hidden");
+  indexSection.classList.add("block");
+  videoSection.classList.remove("flex");
+  videoSection.classList.add("hidden");
+  qrcodeSection.classList.remove("flex");
+  qrcodeSection.classList.add("hidden");
+  openFullscreen();
+  captureImageCount = true;
+};
 // ========================= custom keyboard key for shortcut ====================
 // Function to toggle full screen using f key
 function toggleFullScreen() {
@@ -255,6 +270,7 @@ function openFullscreen() {
 
 let captureImageCount = true;
 
+
 // Function to handle key press event
 function handleKeyPress(event) {
   // check keyboard ("enter") keyCode = 13 mean enter
@@ -266,21 +282,9 @@ function handleKeyPress(event) {
     videoSection.classList.remove("hidden");
     videoSection.classList.add("flex");
     CountDownTimer();
-  }else if (event.keyCode == 120) {
+  } else if (event.keyCode == 120) {
     // check keyboard ("x")
-    document.getElementById(
-      "captureBG"
-    ).src = `./assets/5.jpg`;
-     countdown.style.display = "block";
-    countdown.src = "./assets/5.jpg";
-    indexSection.classList.remove("hidden");
-    indexSection.classList.add("block");
-    videoSection.classList.remove("flex");
-    videoSection.classList.add("hidden");
-    qrcodeSection.classList.remove("flex");
-    qrcodeSection.classList.add("hidden");
-    openFullscreen();
-    captureImageCount = true;
+    atWorksDone();
   }
 }
 // Add event listener for key press event
