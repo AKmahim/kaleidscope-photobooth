@@ -187,8 +187,8 @@ function createQrCode(url) {
   document.getElementById("qr-code").innerHTML = "";
   const qr = new QRCode(document.getElementById("qr-code"), {
     text: url,
-    width: 250,
-    height: 250,
+    width: 150,
+    height: 150,
   });
 
   // console.log(qr);
